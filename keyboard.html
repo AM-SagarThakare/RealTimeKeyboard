@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>Typing Speed checker</title>
   <link rel="stylesheet" href="keyboard.css" />
 </head>
 
@@ -14,17 +14,17 @@
 
   <div class="currentTime-div">
     <span style="color:white">
-      <h1 class="currentTime">60</h1><span>second</span>
+      <h1 class="currentTime">60</h1><span>seconds</span>
     </span>
   </div>
 
   <div class="typingArea-div">
     <!-- <textarea class="inputSection"  > </textarea> -->
-    <textarea class="typingSection" oninput="updateTypingCount()" placeholder="start typing..."  ></textarea>
+    <textarea class="typingSection" oninput="updateTypingCount()" rows="3" placeholder="start typing..."  ></textarea>
 
     <div class="charCount">
       <p class="typedWord">Typed Character : 0</p>
-      <button class="resetButton" onclick="getParagraph()"> Restart Typing </button>
+      <button class="resetButton" onclick="getParagraph()"> Restart Typing </button>  
     </div>
   </div>
 
