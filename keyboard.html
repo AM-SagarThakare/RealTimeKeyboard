@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typing Speed checker</title>
+    <link rel="stylesheet" href="keyboard.css" />
+  </head>
+
+  <body>
+    <div class="currentTime-div">
+      <span style="color: white">
+        <h1 class="currentTime">60</h1>
+        <span>seconds</span>
+      </span>
+    </div>
+
+    <div class="typingArea-div">
+
+      <textarea
+        class="typingSection"
+        oninput="updateTypingCount()"
+        rows="3"
+        placeholder="click here and start typing ... "
+      ></textarea>
+
+      <div class="charCount">
+        <p class="typedWord">Typed Character : 0</p>
+        <button class="resetButton" onclick="getParagraph()">
+          Restart Typing
+        </button>
+      </div>
+    </div>
+
+    <div class="keyboard-div">
+      <div class="functionKey-maindiv">
+        <div class="functionKey-div esc-div">
+          <button class="buttons" id="Escape">Esc</button>
+        </div>
+        <div class="functionKey-div">
+          <button class="buttons functionKey">F1</button>
+          <button class="buttons functionKey">F2</button>
+          <button class="buttons functionKey">F3</button>
+          <button class="buttons functionKey">F4</button>
+        </div>
+        <div class="functionKey-div">
+          <button class="buttons functionKey">F5</button>
+          <button class="buttons functionKey">F6</button>
+          <button class="buttons functionKey">F7</button>
+          <button class="buttons functionKey">F8</button>
+        </div>
+        <div class="functionKey-div">
+          <button class="buttons functionKey">F9</button>
+          <button class="buttons functionKey">F10</button>
+          <button class="buttons functionKey">F11</button>
+          <button class="buttons functionKey">F12</button>
+        </div>
+      </div>
+
+      <!-- downside buttons -->
+      <div class="downsideButtons-div">
+        <!--typewriter keys / first a-z buttons div   -->
+        <div class="typeWriterKeys-div">
+          <div class="autoAdjustButtons">
+            <button class="buttons" id="Backquote">~</button>
+            <button class="buttons" id="Digit1">1</button>
+            <button class="buttons" id="Digit2">2</button>
+            <button class="buttons" id="Digit3">3</button>
+            <button class="buttons" id="Digit4">4</button>
+            <button class="buttons" id="Digit5">5</button>
+            <button class="buttons" id="Digit6">6</button>
+            <button class="buttons" id="Digit7">7</button>
+            <button class="buttons" id="Digit8">8</button>
+            <button class="buttons" id="Digit9">9</button>
+            <button class="buttons" id="Digit0">0</button>
+            <button class="buttons" id="Minus">-</button>
+            <button class="buttons" id="Equal">=</button>
+            <button class="buttons" id="Backspace">Backspace</button>
+          </div>
+
+          <div class="autoAdjustButtons">
+            <button class="buttons" id="Tab">Tab</button>
+            <button class="buttons" id="KeyQ">Q</button>
+            <button class="buttons" id="KeyW">W</button>
+            <button class="buttons" id="KeyE">E</button>
+            <button class="buttons" id="KeyR">R</button>
+            <button class="buttons" id="KeyT">T</button>
+            <button class="buttons" id="KeyY">Y</button>
+            <button class="buttons" id="KeyU">U</button>
+            <button class="buttons" id="KeyI">I</button>
+            <button class="buttons" id="KeyO">O</button>
+            <button class="buttons" id="KeyP">P</button>
+            <button class="buttons" id="BracketLeft">[</button>
+            <button class="buttons" id="BracketRight">]</button>
+            <button class="buttons" id="Backslash">\</button>
+          </div>
+
+          <div class="autoAdjustButtons">
+            <button class="buttons" id="CapsLock">CapsLock</button>
+            <button class="buttons" id="KeyA">A</button>
+            <button class="buttons" id="KeyS">S</button>
+            <button class="buttons" id="KeyD">D</button>
+            <button class="buttons" id="KeyF">F</button>
+            <button class="buttons" id="KeyG">G</button>
+            <button class="buttons" id="KeyH">H</button>
+            <button class="buttons" id="KeyJ">J</button>
+            <button class="buttons" id="KeyK">K</button>
+            <button class="buttons" id="KeyL">L</button>
+            <button class="buttons" id="Semicolon">;</button>
+            <button class="buttons" id="Quote">'</button>
+            <button class="buttons" id="Enter">Enter</button>
+          </div>
+
+          <div class="autoAdjustButtons">
+            <button class="buttons" id="ShiftLeft">shift</button>
+            <button class="buttons" id="KeyZ">Z</button>
+            <button class="buttons" id="KeyX">X</button>
+            <button class="buttons" id="KeyC">C</button>
+            <button class="buttons" id="KeyV">V</button>
+            <button class="buttons" id="KeyB">B</button>
+            <button class="buttons" id="KeyN">N</button>
+            <button class="buttons" id="KeyM">M</button>
+            <button class="buttons" id="Comma">,</button>
+            <button class="buttons" id="Period">.</button>
+            <button class="buttons" id="Slash">/</button>
+            <button class="buttons" id="ShiftRight">shift</button>
+          </div>
+
+          <div class="autoAdjustButtons">
+            <button class="buttons" id="ControlLeft">Ctrl</button>
+            <!-- <button class="buttons" >Fn</button> -->
+            <button class="buttons" id="MetaLeft">Windows</button>
+            <button class="buttons" id="AltLeft">alt</button>
+            <button class="buttons spaceButtonWidth">Space</button>
+            <button class="buttons" id="AltRight">AltGr</button>
+            <button class="buttons" id="MetaRight">Windows</button>
+            <button class="buttons" id="ContextMenu">
+              <img src="./icons8-menu-squared-50.png" height="15px" />
+            </button>
+            <button class="buttons" id="ControlRight">Ctrl</button>
+          </div>
+        </div>
+
+        <!-- arrow and cursor keys -->
+        <div class="arrowInsertButtton-div">
+          <!-- insert, delete ,home ,end div -->
+          <div class="insertKeys-div">
+            <div class="insertButtonRow">
+              <button class="buttons width32" id="Insert">Insert</button>
+              <button class="buttons width32" id="Home">Home</button>
+              <button class="buttons width32" id="PageUp">PageUp</button>
+            </div>
+
+            <div class="insertButtonRow">
+              <button class="buttons width32" id="Delete">Delete</button>
+              <button class="buttons width32" id="End">End</button>
+              <button class="buttons width32" id="PageDown">PgDown</button>
+            </div>
+          </div>
+
+          <!-- Arrow Keys -->
+          <div class="arrowKey-div">
+            <div class="upKey-div">
+              <button class="buttons" id="ArrowUp">
+                <img src="./upArrow.png" height="20px" />
+              </button>
+            </div>
+
+            <div class="down3Keys-div">
+              <button class="buttons" id="ArrowLeft">
+                <img src="./leftArrow.png" height="20px" />
+              </button>
+              <button class="buttons" id="ArrowDown">
+                <img src="./downArrow.png" height="20px" />
+              </button>
+              <button class="buttons" id="ArrowRight">
+                <img src="./rightArrow.png" height="20px" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Numeric keypad -->
+        <div class="numeric-parentDiv">
+          <!-- numbers  delete numlock div -->
+          <div class="numDelNumber-div">
+            <!-- numbers-numlock div -->
+            <div class="numbersNumlock-div">
+              <!-- numlock / *  -->
+              <div class="numeric-singleRow-div">
+                <div class="numericKeyboardButtons-div makeFullButton">
+                  <button class="buttons" id="NumLock">Num Lock</button>
+                </div>
+                <div class="numericKeyboardButtons-div">
+                  <button class="buttons makeFullButton" id="NumpadDivide">
+                    /
+                  </button>
+                </div>
+                <div class="numericKeyboardButtons-div">
+                  <button class="buttons makeFullButton" id="NumpadMultiply">
+                    *
+                  </button>
+                </div>
+              </div>
+
+              <div class="numeric-singleRow-div">
+                <div class="numericKeyboardButtons-div">
+                  <button class="buttons makeFullButton" id="Numpad7">7</button>
+                </div>
+
+                <div class="numericKeyboardButtons-div">
+                  <button class="buttons makeFullButton" id="Numpad8">8</button>
+                </div>
+
+                <div class="numericKeyboardButtons-div">
+                  <button class="buttons makeFullButton" id="Numpad9">9</button>
+                </div>
+              </div>
+
+              <div class="numeric-singleRow-div">
+                <div class="numericKeyboardButtons-div">
+                  <button class="buttons makeFullButton" id="Numpad4">4</button>
+                </div>
+
+                <div class="numericKeyboardButtons-div">
+                  <button class="buttons makeFullButton" id="Numpad5">5</button>
+                </div>
+
+                <div class="numericKeyboardButtons-div">
+                  <button class="buttons makeFullButton" id="Numpad6">6</button>
+                </div>
+              </div>
+
+              <div class="numeric-singleRow-div">
+                <div class="numericKeyboardButtons-div">
+                  <button class="buttons makeFullButton" id="Numpad1">1</button>
+                </div>
+
+                <div class="numericKeyboardButtons-div">
+                  <button class="buttons makeFullButton" id="Numpad2">2</button>
+                </div>
+
+                <div class="numericKeyboardButtons-div">
+                  <button class="buttons makeFullButton" id="Numpad3">3</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- 0 delete button div -->
+            <div class="zeroDelete-div">
+              <div class="numericZero-div">
+                <button class="buttons makeFullButton" id="Numpad0">0</button>
+              </div>
+              <div class="numericKeyboardButtons-div">
+                <button class="buttons makeFullButton" id="NumpadDecimal">
+                  .
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--  enter - + button div -->
+        <div class="numericEnterRightSide-div">
+          <div class="numericNegativeButton-div">
+            <button class="buttons makeFullButton" id="NumpadSubtract">
+              -
+            </button>
+          </div>
+
+          <div class="numericPlusButton-div">
+            <button class="buttons makeFullButton" id="NumpadAdd">+</button>
+          </div>
+
+          <div class="numericEnterButton-div">
+            <button class="buttons makeFullButton" id="NumpadEnter">
+              Enter
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div style="color: white;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est molestiae expedita optio corrupti sint. Nihil repudiandae nemo vel voluptas aliquid doloribus ex, repellendus pariatur laborum tempora ipsa blanditiis hic delectus eveniet. Laboriosam, doloribus dolore molestias tempore sit sed unde facilis possimus aspernatur, illum incidunt quos atque a blanditiis maiores corporis consequuntur, repudiandae perspiciatis? Earum nemo perspiciatis, architecto molestias, consequuntur atque recusandae deleniti, reprehenderit officia labore tempora. Numquam molestiae neque totam officia id explicabo, assumenda laboriosam excepturi iusto quidem sapiente optio animi, doloremque, vel sint mollitia! Culpa eaque in, tempora error dolorem nisi dolorum officiis, non reprehenderit similique enim suscipit unde!</div> -->
+    <script src="./keyboard.js"></script>
+    <!-- <script src="index.js"></script> -->
+  </body>
+</html>

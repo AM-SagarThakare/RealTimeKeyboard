@@ -58,7 +58,6 @@ function checWPM() {
 
   alert("Typed Words per minute : " + spaceCount + " Words");
 }
-
 function getParagraph() {
   location.reload();
 }
