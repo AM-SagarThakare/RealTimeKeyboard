@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   border: 1px solid red;
   border-radius: 10px;
@@ -13,7 +14,7 @@ body {
   /* font-size: 1px; */
 }
 
-.typingArea-div{
+.typingArea-div {
   /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
@@ -22,7 +23,7 @@ body {
   /* padding: 1%; */
 }
 
-.typingSection{
+.typingSection {
   border-radius: 5px;
   width: 100%;
   padding: 1%;
@@ -33,14 +34,15 @@ body {
   /* justify-content: start; */
 }
 
-.currentTime-div{
+.currentTime-div {
   /* border: 1px solid rgb(226, 255, 81); */
-      text-align: center;
-      color: white;
-      /* padding: 1%; */
-      box-sizing: border-box;
+  text-align: center;
+  color: white;
+  /* padding: 1%; */
+  box-sizing: border-box;
 }
-.currentTime{
+
+.currentTime {
   color: white;
   text-align: center;
   text-shadow: 2px 2px 2px red;
@@ -48,28 +50,31 @@ body {
   margin: 0;
 }
 
-.typedWord{
+.typedWord {
   color: white;
   font-size: large;
 }
+
 .charCount {
   /* border : 1px solid rgb(0, 30, 255); */
   border-bottom: 1px solid white;
-  padding:0% 1% ;
+  padding: 0% 1%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.resetButton{
-  background-color: rgb(161, 255, 255);  
+
+.resetButton {
+  background-color: rgb(161, 255, 255);
   padding: 1% 3%;
-    font-weight: bolder;
+  font-weight: bolder;
   border-radius: 5px;
 }
-.resetButton:hover{
-  background-color: rgb(0, 255, 255);  
-    color: black;
-    font-weight: bolder;
+
+.resetButton:hover {
+  background-color: rgb(0, 255, 255);
+  color: black;
+  font-weight: bolder;
 }
 
 .keyboard-div {
@@ -84,24 +89,28 @@ body {
   padding: 2% 1%;
   border-radius: 8px;
 }
+
 .buttons {
   padding: 1.5%;
   background-color: rgb(0, 0, 0);
   color: white;
   border-radius: 5px;
-  width:  100%;
-  height:  100%;
+  width: 100%;
+  height: 100%;
   /* overflow: hidden; */
 }
-.downsideButtons-div{
+
+.downsideButtons-div {
   display: flex;
 }
+
 .afterPress {
   background-color: rgb(99, 99, 99);
   color: rgb(0, 0, 0);
   padding: 1.5%;
   box-shadow: 2px 2px 2px rgb(207, 207, 207);
 }
+
 .autoAdjustButtons {
   width: 97%;
   display: flex;
@@ -110,12 +119,14 @@ body {
   /* border: 1px solid red; */
   /* overflow-wrap: normal; */
 }
+
 .functionKey-maindiv {
   display: flex;
   justify-content: space-between;
   width: 56%;
   /* border: 1px solid red;  */
 }
+
 .functionKey-div {
   /* border: 2px solid rgb(239, 239, 239); */
   display: flex;
@@ -134,7 +145,7 @@ body {
 
 
 /* typewriter keys */
-.typeWriterKeys-div{
+.typeWriterKeys-div {
   /* border: 10px solid red; */
   display: flex;
   flex-direction: column;
@@ -143,7 +154,7 @@ body {
 }
 
 /* arrowInsertButtton-div */
-.arrowInsertButtton-div{
+.arrowInsertButtton-div {
   /* border: 1px solid red; */
   width: 20%;
   display: flex;
@@ -161,6 +172,7 @@ body {
   width: 99%;
   height: 40%;
 }
+
 .insertButtonRow {
   width: 100%;
   display: flex;
@@ -168,6 +180,7 @@ body {
   height: 48%;
   /* border: 5px solid red; */
 }
+
 .width32 {
   width: 32%;
 }
@@ -175,25 +188,28 @@ body {
 
 /* arrow */
 
-.upKey-div, .down3Keys-div{
+.upKey-div,
+.down3Keys-div {
   /* margin: auto; */
   display: flex;
   justify-content: center;
   height: 48%;
   gap: 1%;
-  border: 1PX SOLID;
+  /* border: 1PX SOLID; */
 }
+
 .upKey-div {
   width: 33%;
   margin: auto;
 
 }
 
-.down3Keys-div{
+.down3Keys-div {
   justify-content: space-evenly;
 
 }
-.arrowKey-div{
+
+.arrowKey-div {
   /* display: flex; */
   /* border: 1px solid red; */
   height: 40%;
@@ -207,19 +223,20 @@ body {
 
 
 /* numeric keyboard */
-.numDelNumber-div{
+.numDelNumber-div {
   width: 100%;
   /* border: 1px solid rgb(34, 255, 0); */
   height: 100%;
 }
 
 /* numeric-parentDiv */
-.numeric-parentDiv{
+.numeric-parentDiv {
   /* border: 1px solid red; */
   width: 20%;
   display: flex;
 }
-.numbersNumlock-div{
+
+.numbersNumlock-div {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -230,7 +247,7 @@ body {
   height: 80%;
 }
 
-.zeroDelete-div{
+.zeroDelete-div {
   display: flex;
   /* border: 1px solid red; */
   padding: 1%;
@@ -241,22 +258,27 @@ body {
   justify-content: space-between;
   /* align-items: center; */
 }
+
 .numericZero-div {
   width: 66%;
   /* border: 1px solid rgb(255, 255, 255); */
 }
-.numericEnterRightSide-div{
+
+.numericEnterRightSide-div {
   display: flex;
   flex-direction: column;
   /* gap: 2%; */
   padding: 0.2%;
 }
-.numericNegativeButton-div{
+
+.numericNegativeButton-div {
   /* border: 1px solid rgb(255, 255, 255); */
   height: 20%;
   padding: 2%;
 }
-.numericEnterButton-div, .numericPlusButton-div {
+
+.numericEnterButton-div,
+.numericPlusButton-div {
   /* width: 100%; */
   height: 40%;
   /* border: 1px solid red; */
@@ -264,13 +286,14 @@ body {
   /* font-size: 10%; */
   overflow: hidden;
 }
-.makeFullButton{
+
+.makeFullButton {
   height: 100%;
   width: 100%;
   overflow: hidden;
 }
 
-.numeric-singleRow-div{
+.numeric-singleRow-div {
   /* border: 1px solid rgb(0, 149, 255); */
   display: flex;
   justify-content: space-between;
@@ -279,6 +302,37 @@ body {
   overflow: hidden;
 }
 
-.numericKeyboardButtons-div{
+.numericKeyboardButtons-div {
   width: 32%;
+}
+
+
+
+
+.output-div {
+  width: 100%;
+  color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+
+}
+
+.resetButton-div{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.displayNone,.output-div {
+  /* .displayNone { */
+  display: none;
+}
+
+.displayBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 50%;
+  height: 50%;
+  /* display: block; */
 }
