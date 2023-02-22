@@ -43,8 +43,8 @@ function updateTypingCount() {
     var second = 0;
 
     var intervalId = setInterval(() => {
-      currentTime[0].innerHTML = 2 - ++second;
-      if (second == 2) {
+      currentTime[0].innerHTML = 60 - ++second;
+      if (second == 60) {
         clearInterval(intervalId);
         checWPM();
       }
@@ -74,6 +74,6 @@ function checWPM() {
   characterCount[0].innerHTML= "Typed Character in one minute :  " + typingSection[0].value.length +" Character" ;
 }
 
-function getParagraph() {
+function getParagraph() { 
   location.reload();
 }
