@@ -16,10 +16,10 @@ body {
 }
 
 .textForTyping-div {
-  border : 1px solid white !important;
+  /* border : 1px solid white !important; */
   text-align: center;
   width: 65%;
-  padding: 0% 1%;
+  padding: 1% 1%;
   color: #FFD60A;
   background-color: #242424;
   /* background-color: #000814; */
@@ -27,10 +27,12 @@ body {
   /* border: ; */
 }
 
-.greenColor {
+#correctText,#wrongText {
   color: green;
+  /* font-weight:900; */
+  font-size: x-large;
 }
-.redColor{
+#wrongText{
   color: red;
 }
 

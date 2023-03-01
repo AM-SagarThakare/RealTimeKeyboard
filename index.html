@@ -20,16 +20,19 @@
 
   <div class="textForTyping-div">
     <b><p id="textForTyping"></p></b>
+    <span id="correctText">  </span><span id="wrongText"></span><span id="remaningText"></span>
   </div>
+
+  
 
   <div class="typingArea-div">
 
     <textarea class="typingSection" oninput="updateTypingCount()" rows="3"
-      placeholder="click here and start typing ... "></textarea>
+      placeholder="click here / Press tab and start typing ... "></textarea>
 
     <div class="charCount">
       <p class="typedWord">Typed Character : 0</p>
-      <button class="resetButton" onclick="getParagraph()">
+      <button class="resetButton" onclick="resetPage()">
         Restart Typing
       </button>
     </div>
@@ -289,7 +292,7 @@
     <h2 class="characterCount"></h2>
 
     <div class="resetButton-div">
-      <button class="resetButton" onclick="getParagraph()">
+      <button class="resetButton" onclick="resetPage()">
         Restart Typing
       </button>
     </div>

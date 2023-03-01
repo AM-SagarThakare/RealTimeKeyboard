@@ -10,6 +10,10 @@ var typingArea = document.getElementsByClassName("typingArea-div");
 var keyboardDiv = document.getElementsByClassName("keyboard-div");
 
 var textForTyping = document.getElementById("textForTyping");
+var correctText = document.getElementById("correctText");
+var remaningText = document.getElementById("remaningText");
+
+var wrongText = document.getElementById("wrongText");
 
 var selected = 0;
 var startSetTimeOut = 1;
@@ -30,7 +34,8 @@ const paragraphs = [
 
 let number = Math.floor(Math.random() * paragraphs.length);
 
-textForTyping.innerHTML = paragraphs[number];
+remaningText.innerHTML = paragraphs[number];
+console.log(remaningText.innerHTML);
 
 document.addEventListener("keydown", (event) => {
   let i = 0;
@@ -43,13 +48,11 @@ document.addEventListener("keydown", (event) => {
       for (let i = 0; i < buttons.length; i++) {
         buttons[selected].className = "buttons";
       }
-      // selected = -1;
     }
   }
 });
 
 document.addEventListener("keyup", () => {
-  // console.log(selected);
   buttons[selected].className = "buttons";
 });
 
@@ -72,22 +75,33 @@ function updateTypingCount() {
   }
 }
 function checkCharacter() {
-  console.log(
-    typingSection[0].value[typingSection[0].value.length - 1] ===
-      paragraphs[number][typingSection[0].value.length - 1]
-  );
-  console.log(typingSection[0].value[typingSection[0].value.length - 1],paragraphs[number][typingSection[0].value.length - 1]);
+  // console.log(
+  //   typingSection[0].value[typingSection[0].value.length - 1] ===
+  //   paragraphs[number][typingSection[0].value.length - 1]
+  // );
+  // console.log(typingSection[0].value[typingSection[0].value.length - 1], paragraphs[number][typingSection[0].value.length - 1]);
 
   if (
     typingSection[0].value[typingSection[0].value.length - 1] ===
     paragraphs[number][typingSection[0].value.length - 1]
   ) {
-    console.log('added');
+    correctText.innerHTML = paragraphs[number].substring(0, typingSection[0].value.length);
+    wrongText.innerHTML = ''
+    remaningText.innerHTML = paragraphs[number].substring(typingSection[0].value.length, paragraphs[number].length)
 
-    textForTyping.classList.remove("redColor");
-    textForTyping.classList.add("greenColor");
-  } else textForTyping.classList.add("redColor");
+
+    // textForTyping.classList.remove("redColor");
+    // textForTyping.classList.add("greenColor");
+  } else {
+    
+    // remaningText.innerHTML > 0 ? console.log('chukl') : '';
+    wrongText.innerHTML = remaningText.innerHTML.substring(0,1);
+    // remaningText.innerHTML = remaningText.innerHTML.substring(1,paragraphs[number].length)
+    // textForTyping.classList.add("redColor"); 
+  }
 }
+
+console.log(paragraphs[number]);
 
 function checWPM() {
   let spaceCount = 1;
@@ -98,7 +112,6 @@ function checWPM() {
     if (typedWord[i] === " ") spaceCount++;
   }
 
-  // alert("Typed Words per minute : " + spaceCount + " Words");
 
   typingArea[0].classList.add("displayNone");
   keyboardDiv[0].classList.add("displayNone");
@@ -110,6 +123,6 @@ function checWPM() {
     " Character";
 }
 
-function getParagraph() {
+function resetPage() {
   location.reload();
 }
