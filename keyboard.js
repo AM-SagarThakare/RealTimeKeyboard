@@ -1,23 +1,27 @@
+// by class
 var buttons = document.getElementsByClassName("buttons");
 var typingSection = document.getElementsByClassName("typingSection");
 var typedWord = document.getElementsByClassName("typedWord");
 var currentTime = document.getElementsByClassName("currentTime");
 var wordsCount = document.getElementsByClassName("wordsCount");
 var characterCount = document.getElementsByClassName("characterCount");
-var percentage = document.getElementsByClassName('percentage')
+var percentage = document.getElementsByClassName("percentage");
 
 var outputDiv = document.getElementsByClassName("output-div");
 var typingArea = document.getElementsByClassName("typingArea-div");
 var keyboardDiv = document.getElementsByClassName("keyboard-div");
 
+// by id
 var textForTyping = document.getElementById("textForTyping");
 var correctText = document.getElementById("correctText");
 var remaningText = document.getElementById("remaningText");
-
 var wrongText = document.getElementById("wrongText");
+var output = document.getElementById('output')
 
 var selected = 0;
 var startSetTimeOut = 1;
+
+
 
 const paragraphs = [
   "India is a great country having different cultures, castes, creed, religions but still, they live together. India is known for its heritage, spices, and of course, for people who live here. That's the reasons India is famous for the common saying of “unity in diversity”.",
@@ -37,6 +41,8 @@ let number = Math.floor(Math.random() * paragraphs.length);
 
 remaningText.innerHTML = paragraphs[number];
 console.log(remaningText.innerHTML);
+var splitedArr = paragraphs[number].split('');
+console.log(splitedArr);
 
 document.addEventListener("keydown", (event) => {
   let i = 0;
@@ -57,10 +63,12 @@ document.addEventListener("keyup", () => {
   buttons[selected].className = "buttons";
 });
 
-function updateTypingCount() {
+function updateTypingCount(e) {
   typedWord[0].innerHTML = "Typed Character : " + typingSection[0].value.length;
 
-  checkCharacter();
+  // checkCharacter();     // important dont remove
+  checkChar();
+  // console.log(e);
 
   if (typingSection[0].value.length == startSetTimeOut) {
     startSetTimeOut = -1;
@@ -75,19 +83,45 @@ function updateTypingCount() {
     }, 1000);
   }
 }
-function checkCharacter() {
 
+function checkChar() {
+  if (
+    typingSection[0].value[typingSection[0].value.length - 1] ===
+    splitedArr[typingSection[0].value.length - 1]
+  ) {
+    output.innerHTML += `<span class='correctText' style="color:green" >${splitedArr[typingSection[0].value.length - 1]}</span>` ;
+    remaningText.innerHTML = paragraphs[number].substring(
+      typingSection[0].value.length,
+      paragraphs[number].length
+    );
+
+  } else {
+    output.innerHTML +=`<span class='correctText' style="color:red" >${typingSection[0].value[typingSection[0].value.length - 1]}</span>` ;
+    remaningText.innerHTML = paragraphs[number].substring(
+      typingSection[0].value.length,
+      paragraphs[number].length
+    );
+
+
+    // console.log('chukty');
+  }
+}
+function checkCharacter() {
   if (
     typingSection[0].value[typingSection[0].value.length - 1] ===
     paragraphs[number][typingSection[0].value.length - 1]
   ) {
-    correctText.innerHTML = paragraphs[number].substring(0, typingSection[0].value.length);
-    wrongText.innerHTML = ''
-    remaningText.innerHTML = paragraphs[number].substring(typingSection[0].value.length, paragraphs[number].length)
-
+    correctText.innerHTML = paragraphs[number].substring(
+      0,
+      typingSection[0].value.length
+    );
+    wrongText.innerHTML = "";
+    remaningText.innerHTML = paragraphs[number].substring(
+      typingSection[0].value.length,
+      paragraphs[number].length
+    );
   } else {
-    
-    wrongText.innerHTML = remaningText.innerHTML.substring(0,1);
+    wrongText.innerHTML = remaningText.innerHTML.substring(0, 1);
   }
 }
 
@@ -97,21 +131,30 @@ function checWPM() {
   let spaceCount = 1;
   let typedWord = typingSection[0].value;
 
-  for (let i = 0; i < typedWord.length; i++) {
-    if (typedWord[i] === " ") spaceCount++;
-  }
-
+  // for (let i = 0; i < typedWord.length; i++) {
+  //   if (typedWord[i] === " ") spaceCount++;
+  // }
+  spaceCount = typingSection[0].value.split(" ").length;
 
   typingArea[0].classList.add("displayNone");
   keyboardDiv[0].classList.add("displayNone");
   outputDiv[0].classList.add("displayBlock");
+  if (typedWord.length == 0) spaceCount = 0;
+
   wordsCount[0].innerHTML = "Typed Words per minute : " + spaceCount + " Words";
   characterCount[0].innerHTML =
     "Typed Character in one minute :  " +
     typingSection[0].value.length +
     " Character";
 
-    percentage[0].innerHTML ='Accuracy : '+ Math.round((correctText.innerHTML.length / (correctText.innerHTML.length+remaningText.innerHTML.length)) * 100) +  '%' ;
+  percentage[0].innerHTML =
+    "Completed : " +
+    Math.round(
+      (correctText.innerHTML.length /
+        (correctText.innerHTML.length + remaningText.innerHTML.length)) *
+        100
+    ) +
+    "%";
 }
 
 function resetPage() {
