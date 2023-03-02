@@ -75,11 +75,6 @@ function updateTypingCount() {
   }
 }
 function checkCharacter() {
-  // console.log(
-  //   typingSection[0].value[typingSection[0].value.length - 1] ===
-  //   paragraphs[number][typingSection[0].value.length - 1]
-  // );
-  // console.log(typingSection[0].value[typingSection[0].value.length - 1], paragraphs[number][typingSection[0].value.length - 1]);
 
   if (
     typingSection[0].value[typingSection[0].value.length - 1] ===
@@ -90,14 +85,9 @@ function checkCharacter() {
     remaningText.innerHTML = paragraphs[number].substring(typingSection[0].value.length, paragraphs[number].length)
 
 
-    // textForTyping.classList.remove("redColor");
-    // textForTyping.classList.add("greenColor");
   } else {
     
-    // remaningText.innerHTML > 0 ? console.log('chukl') : '';
     wrongText.innerHTML = remaningText.innerHTML.substring(0,1);
-    // remaningText.innerHTML = remaningText.innerHTML.substring(1,paragraphs[number].length)
-    // textForTyping.classList.add("redColor"); 
   }
 }
 
