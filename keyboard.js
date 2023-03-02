@@ -2,10 +2,11 @@ var buttons = document.getElementsByClassName("buttons");
 var typingSection = document.getElementsByClassName("typingSection");
 var typedWord = document.getElementsByClassName("typedWord");
 var currentTime = document.getElementsByClassName("currentTime");
-var outputDiv = document.getElementsByClassName("output-div");
 var wordsCount = document.getElementsByClassName("wordsCount");
 var characterCount = document.getElementsByClassName("characterCount");
+var percentage = document.getElementsByClassName('percentage')
 
+var outputDiv = document.getElementsByClassName("output-div");
 var typingArea = document.getElementsByClassName("typingArea-div");
 var keyboardDiv = document.getElementsByClassName("keyboard-div");
 
@@ -66,8 +67,8 @@ function updateTypingCount() {
     var second = 0;
 
     var intervalId = setInterval(() => {
-      currentTime[0].innerHTML = 60 - ++second;
-      if (second == 60) {
+      currentTime[0].innerHTML = 10 - ++second;
+      if (second == 10) {
         clearInterval(intervalId);
         checWPM();
       }
@@ -84,19 +85,17 @@ function checkCharacter() {
     wrongText.innerHTML = ''
     remaningText.innerHTML = paragraphs[number].substring(typingSection[0].value.length, paragraphs[number].length)
 
-
   } else {
     
     wrongText.innerHTML = remaningText.innerHTML.substring(0,1);
   }
 }
 
-console.log(paragraphs[number]);
+// console.log(paragraphs[number]);
 
 function checWPM() {
   let spaceCount = 1;
   let typedWord = typingSection[0].value;
-  // console.log(typingSection[0].value);
 
   for (let i = 0; i < typedWord.length; i++) {
     if (typedWord[i] === " ") spaceCount++;
@@ -111,6 +110,8 @@ function checWPM() {
     "Typed Character in one minute :  " +
     typingSection[0].value.length +
     " Character";
+
+    percentage[0].innerHTML ='Accuracy : '+ Math.round((correctText.innerHTML.length / (correctText.innerHTML.length+remaningText.innerHTML.length)) * 100) +  '%' ;
 }
 
 function resetPage() {
