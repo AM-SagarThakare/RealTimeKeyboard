@@ -109,6 +109,7 @@ body {
   width: 65%;
   padding: 2% 1%;
   border-radius: 8px;
+  font-size: xx-small;
 }
 
 .buttons {
@@ -151,7 +152,7 @@ body {
 .functionKey-div {
   /* border: 2px solid rgb(239, 239, 239); */
   display: flex;
-  /* gap: 2%; */
+  gap: 1.5%;
   justify-content: space-evenly;
   width: 30%;
 }

@@ -46,10 +46,16 @@ console.log(splitedArr);
 
 document.addEventListener("keydown", (event) => {
   let i = 0;
+  console.log(event);
+
   for (; i < buttons.length; i++) {
     if (buttons[i].id == event.code || buttons[i].textContent == event.code) {
       buttons[i].classList.toggle("afterPress");
       selected = i; // after clicking button we toggles the class.
+
+      if(event.key == 'Backspace')
+        output.innerHTML = output.innerHTML.slice(0,output.innerHTML.length-1);
+
       return;
     } else {
       for (let i = 0; i < buttons.length; i++) {
@@ -66,17 +72,16 @@ document.addEventListener("keyup", () => {
 function updateTypingCount(e) {
   typedWord[0].innerHTML = "Typed Character : " + typingSection[0].value.length;
 
-  // checkCharacter();     // important dont remove
-  checkChar();
-  // console.log(e);
+  //----------- checkCharacter();     // important dont remove
+  checkChar();  
 
   if (typingSection[0].value.length == startSetTimeOut) {
     startSetTimeOut = -1;
     var second = 0;
 
     var intervalId = setInterval(() => {
-      currentTime[0].innerHTML = 10 - ++second;
-      if (second == 10) {
+      currentTime[0].innerHTML = 60 - ++second;
+      if (second == 60) {
         clearInterval(intervalId);
         checWPM();
       }
@@ -85,6 +90,7 @@ function updateTypingCount(e) {
 }
 
 function checkChar() {
+
   if (
     typingSection[0].value[typingSection[0].value.length - 1] ===
     splitedArr[typingSection[0].value.length - 1]
