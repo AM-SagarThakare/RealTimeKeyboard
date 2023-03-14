@@ -46,7 +46,7 @@ document.addEventListener("keydown", (event) => {
   let i = 0;
   for (; i < buttons.length; i++) {
     if (event.key === "Backspace") {
-      console.log("backspace clicked");
+      // console.log("backspace clicked");
       isBackspaceClicked = true;
 
       // console.log(output.innerHTML.split('  ').splice(-2,-1));
@@ -85,8 +85,8 @@ function updateTypingCount(e) {
     var second = 0;
 
     var intervalId = setInterval(() => {
-      currentTime[0].innerHTML = 30 - ++second;
-      if (second == 30) {
+      currentTime[0].innerHTML = 10 - ++second;
+      if (second == 10) {
         clearInterval(intervalId);
         checWPM();
       }
@@ -167,11 +167,14 @@ function checWPM() {
   percentage[0].innerHTML =
     "Completed : " +
     Math.round(
-      (output.innerHTML.length /
-        (output.innerHTML.length + remaningText.innerHTML.length)) *
+      (document.getElementsByClassName('correctText').length /
+        (document.getElementsByClassName('correctText').length + remaningText.innerHTML.length)) *
         100
     ) +
     "%";
+
+    // console.log(document.getElementsByClassName('correctText').length);
+    // console.log(remaningText.innerHTML.length);
 }
 
 function resetPage() {
