@@ -16,12 +16,11 @@ var textForTyping = document.getElementById("textForTyping");
 var correctText = document.getElementById("correctText");
 var remaningText = document.getElementById("remaningText");
 var wrongText = document.getElementById("wrongText");
-var output = document.getElementById('output')
+var output = document.getElementById("output");
 
 var selected = 0;
 var startSetTimeOut = 1;
-
-
+var isBackspaceClicked = false;
 
 const paragraphs = [
   "India is a great country having different cultures, castes, creed, religions but still, they live together. India is known for its heritage, spices, and of course, for people who live here. That's the reasons India is famous for the common saying of “unity in diversity”.",
@@ -40,16 +39,27 @@ const paragraphs = [
 let number = Math.floor(Math.random() * paragraphs.length);
 
 remaningText.innerHTML = paragraphs[number];
-console.log(remaningText.innerHTML);
-var splitedArr = paragraphs[number].split('');
-console.log(splitedArr);
+var splitedArr = paragraphs[number].split("");
 
 document.addEventListener("keydown", (event) => {
+  // console.log(event);
   let i = 0;
   for (; i < buttons.length; i++) {
-    if (buttons[i].id == event.code || buttons[i].textContent == event.code) {
+    if (event.key === "Backspace") {
+      console.log("backspace clicked");
+      isBackspaceClicked = true;
+
+      // console.log(output.innerHTML.split('  ').splice(-2,-1));
+      // output.innerHTML = output.innerHTML.split('<span',output.innerHTML.length-1).pop();
+      // console.log('clicked');
+      break;
+    } else if (
+      buttons[i].id == event.code ||
+      buttons[i].textContent == event.code
+    ) {
       buttons[i].classList.toggle("afterPress");
       selected = i; // after clicking button we toggles the class.
+      console.log("button clicked");
       return;
     } else {
       for (let i = 0; i < buttons.length; i++) {
@@ -75,8 +85,8 @@ function updateTypingCount(e) {
     var second = 0;
 
     var intervalId = setInterval(() => {
-      currentTime[0].innerHTML = 10 - ++second;
-      if (second == 10) {
+      currentTime[0].innerHTML = 30 - ++second;
+      if (second == 30) {
         clearInterval(intervalId);
         checWPM();
       }
@@ -85,25 +95,34 @@ function updateTypingCount(e) {
 }
 
 function checkChar() {
-  if (
-    typingSection[0].value[typingSection[0].value.length - 1] ===
-    splitedArr[typingSection[0].value.length - 1]
-  ) {
-    output.innerHTML += `<span class='correctText' style="color:green" >${splitedArr[typingSection[0].value.length - 1]}</span>` ;
-    remaningText.innerHTML = paragraphs[number].substring(
-      typingSection[0].value.length,
-      paragraphs[number].length
-    );
-
+  if (isBackspaceClicked === false) {
+    if (
+      typingSection[0].value[typingSection[0].value.length - 1] ===
+      splitedArr[typingSection[0].value.length - 1]
+    ) {
+      output.innerHTML += `<span class='correctText' style="color:green">${
+        splitedArr[typingSection[0].value.length - 1]
+      }</span>`;
+      remaningText.innerHTML = paragraphs[number].substring(
+        typingSection[0].value.length,
+        paragraphs[number].length
+      );
+    } else {
+      output.innerHTML += `<span class='correctText' style="color:red" >${
+        typingSection[0].value[typingSection[0].value.length - 1]
+      }</span>`;
+      remaningText.innerHTML = paragraphs[number].substring(
+        typingSection[0].value.length,
+        paragraphs[number].length
+      );
+    }
   } else {
-    output.innerHTML +=`<span class='correctText' style="color:red" >${typingSection[0].value[typingSection[0].value.length - 1]}</span>` ;
-    remaningText.innerHTML = paragraphs[number].substring(
-      typingSection[0].value.length,
-      paragraphs[number].length
-    );
+    isBackspaceClicked = false;
+    document.getElementsByClassName('correctText')[ document.getElementsByClassName('correctText').length-1].remove()       // remove last element from html collection arrname[index].remove()
+    console.log(remaningText.innerHTML.length);
+    console.log(document.getElementsByClassName('correctText').length);
 
-
-    // console.log('chukty');
+    remaningText.innerHTML = paragraphs[number].substring(document.getElementsByClassName('correctText').length);
   }
 }
 function checkCharacter() {
@@ -124,8 +143,6 @@ function checkCharacter() {
     wrongText.innerHTML = remaningText.innerHTML.substring(0, 1);
   }
 }
-
-// console.log(paragraphs[number]);
 
 function checWPM() {
   let spaceCount = 1;
@@ -150,8 +167,8 @@ function checWPM() {
   percentage[0].innerHTML =
     "Completed : " +
     Math.round(
-      (correctText.innerHTML.length /
-        (correctText.innerHTML.length + remaningText.innerHTML.length)) *
+      (output.innerHTML.length /
+        (output.innerHTML.length + remaningText.innerHTML.length)) *
         100
     ) +
     "%";
@@ -160,3 +177,5 @@ function checWPM() {
 function resetPage() {
   location.reload();
 }
+
+
