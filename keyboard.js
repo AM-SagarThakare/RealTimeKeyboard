@@ -13,7 +13,7 @@ var keyboardDiv = document.getElementsByClassName("keyboard-div");
 
 // by id
 var textForTyping = document.getElementById("textForTyping");
-var correctText = document.getElementById("correctText");
+// var correctText = document.getElementById("correctText");
 var remaningText = document.getElementById("remaningText");
 var wrongText = document.getElementById("wrongText");
 var output = document.getElementById("output");
@@ -46,12 +46,8 @@ document.addEventListener("keydown", (event) => {
   let i = 0;
   for (; i < buttons.length; i++) {
     if (event.key === "Backspace") {
-      // console.log("backspace clicked");
       isBackspaceClicked = true;
-
-      // console.log(output.innerHTML.split('  ').splice(-2,-1));
-      // output.innerHTML = output.innerHTML.split('<span',output.innerHTML.length-1).pop();
-      // console.log('clicked');
+  
       break;
     } else if (
       buttons[i].id == event.code ||
@@ -85,8 +81,8 @@ function updateTypingCount(e) {
     var second = 0;
 
     var intervalId = setInterval(() => {
-      currentTime[0].innerHTML = 10 - ++second;
-      if (second == 10) {
+      currentTime[0].innerHTML = 60 - ++second;
+      if (second == 60) {
         clearInterval(intervalId);
         checWPM();
       }
@@ -173,8 +169,7 @@ function checWPM() {
     ) +
     "%";
 
-    // console.log(document.getElementsByClassName('correctText').length);
-    // console.log(remaningText.innerHTML.length);
+    console.log(document.getElementsByClassName('correctText'));
 }
 
 function resetPage() {
