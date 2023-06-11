@@ -10,7 +10,7 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   /* background-color: #202020; */
   /* font-size: 1px; */
 }
@@ -335,6 +335,7 @@ body {
   color: white;
   border: 1px solid white;
   border-radius: 10px;
+  background-color: #252525;
 
 }
 
@@ -344,11 +345,12 @@ body {
   justify-content: center;
 }
 .displayNone,.output-div {
-  /* .displayNone { */
   display: none;
 }
 
 .displayBlock {
+  text-align: center
+  ;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -356,4 +358,8 @@ body {
   width: 50%;
   height: 50%;
   /* display: block; */
+}
+
+.accuracy{
+  color: green;
 }

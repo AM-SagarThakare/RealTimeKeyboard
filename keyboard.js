@@ -6,6 +6,7 @@ var currentTime = document.getElementsByClassName("currentTime");
 var wordsCount = document.getElementsByClassName("wordsCount");
 var characterCount = document.getElementsByClassName("characterCount");
 var percentage = document.getElementsByClassName("percentage");
+ var accuracy = document.getElementsByClassName("accuracy");
 
 var outputDiv = document.getElementsByClassName("output-div");
 var typingArea = document.getElementsByClassName("typingArea-div");
@@ -13,7 +14,6 @@ var keyboardDiv = document.getElementsByClassName("keyboard-div");
 
 // by id
 var textForTyping = document.getElementById("textForTyping");
-// var correctText = document.getElementById("correctText");
 var remaningText = document.getElementById("remaningText");
 var wrongText = document.getElementById("wrongText");
 var output = document.getElementById("output");
@@ -42,7 +42,6 @@ remaningText.innerHTML = paragraphs[number];
 var splitedArr = paragraphs[number].split("");
 
 document.addEventListener("keydown", (event) => {
-  // console.log(event);
   let i = 0;
   for (; i < buttons.length; i++) {
     if (event.key === "Backspace") {
@@ -74,7 +73,6 @@ function updateTypingCount(e) {
 
   // checkCharacter();     // important dont remove
   checkChar();
-  // console.log(e);
 
   if (typingSection[0].value.length == startSetTimeOut) {
     startSetTimeOut = -1;
@@ -140,13 +138,15 @@ function checkCharacter() {
   }
 }
 
+party.confetti(output, {
+	count: party.variation.range(100, 10),
+});
+
 function checWPM() {
   let spaceCount = 1;
   let typedWord = typingSection[0].value;
 
-  // for (let i = 0; i < typedWord.length; i++) {
-  //   if (typedWord[i] === " ") spaceCount++;
-  // }
+
   spaceCount = typingSection[0].value.split(" ").length;
 
   typingArea[0].classList.add("displayNone");
@@ -160,7 +160,44 @@ function checWPM() {
     typingSection[0].value.length +
     " Character";
 
-  percentage[0].innerHTML =
+  // percentage[0].innerHTML =
+  //   "Completed : " +
+  //   Math.round(
+  //     (document.getElementsByClassName('correctText').length /
+  //       (document.getElementsByClassName('correctText').length + remaningText.innerHTML.length)) *
+  //       100
+  //   ) +
+  //   "%";
+
+    // console.log(document.getElementsByClassName('correctText'));
+    // console.log(document.getElementById("wrongText.innerHTML"));
+    // console.log( Object.values(document.getElementById('output')));
+    // console.log( document.getElementById('output'));
+    // console.log(document.querySelectorAll('#output'));
+    // console.log(document.querySelectorAll('#output')[0].childNodes[0].attributes[1].nodeValue);
+    // console.log(Object.keys(document.querySelectorAll('#output')[0].childNodes).length);
+
+    var childNode = Object.values(document.querySelectorAll('#output')[0].childNodes);
+
+    // console.log(childNode);
+    var greenText = 0;
+    var redText = 0;
+
+    childNode.forEach((element)=>{
+      console.log( element.attributes[1].nodeValue);
+      'color:green' == element.attributes[1].nodeValue ? greenText++ : redText++ ;
+    })
+
+    accuracy[0].innerHTML =
+    "Accuracy : " +
+    Math.round(
+      (greenText /
+        (greenText + redText)) *
+        100
+    ) +
+    "%";
+
+     percentage[0].innerHTML =
     "Completed : " +
     Math.round(
       (document.getElementsByClassName('correctText').length /
@@ -169,11 +206,18 @@ function checWPM() {
     ) +
     "%";
 
-    console.log(document.getElementsByClassName('correctText'));
+    // party.confetti(this);
+
+    console.log(greenText);
+    console.log(redText);
+
+    // console.log(document.getElementById('remaningText'));  
 }
 
 function resetPage() {
   location.reload();
 }
 
-
+function changed(){
+  console.log('cash');
+}

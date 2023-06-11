@@ -286,21 +286,25 @@
       </div>
     </div>
   </div>
+  
+  <div class="button border" style="border:1px solid red; color:white" onmousedown="party.confetti(this)"></div>
 
-  <div class="output-div">
+
+  <div class="output-div" onload="changed()">
     <h2 class="wordsCount"></h2>
     <h2 class="characterCount"></h2>
     <h2 class="percentage"></h2>
+    <h2 class="accuracy"></h2>
 
     <div class="resetButton-div">
-      <button class="resetButton" onclick="resetPage()">
+      <button class="resetButton" onclick="resetPage()"> 
         Restart Typing
       </button>
     </div>
- 
   </div>
 
   <!-- <div style="color: white;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est molestiae expedita optio corrupti sint. Nihil repudiandae nemo vel voluptas aliquid doloribus ex, repellendus pariatur laborum tempora ipsa blanditiis hic delectus eveniet. Laboriosam, doloribus dolore molestias tempore sit sed unde facilis possimus aspernatur, illum incidunt quos atque a blanditiis maiores corporis consequuntur, repudiandae perspiciatis? Earum nemo perspiciatis, architecto molestias, consequuntur atque recusandae deleniti, reprehenderit officia labore tempora. Numquam molestiae neque totam officia id explicabo, assumenda laboriosam excepturi iusto quidem sapiente optio animi, doloremque, vel sint mollitia! Culpa eaque in, tempora error dolorem nisi dolorum officiis, non reprehenderit similique enim suscipit unde!</div> -->
+  <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
   <script  src="./keyboard.js" ></script>
   <!-- <script  src="./randomParagraph.js" ></script> -->
   <!-- <script src="index.js"></script> -->
